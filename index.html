@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Percentage Calculator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f6f9fc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .calculator {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      text-align: center;
+    }
+    input {
+      padding: 12px;
+      margin: 12px;
+      width: 80px;
+      text-align: center;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 24px;
+      color: #2ecc71; /* Green Color */
+    }
+  </style>
+</head>
+<body>
+
+<div class="calculator">
+  <h2 style="color: #3498db;">Percentage Calculator</h2>
+  <label for="numerator">কত নম্বর পেয়েছেন ?  </label>
+  <input type="number" id="numerator" placeholder="Your marks" oninput="calculatePercentage()">
+<br>
+  <label for="denominator">মোট নম্বর কত ছিলো? </label>
+  <input type="number" id="denominator" placeholder="Total marks" oninput="calculatePercentage()">
+
+  <div id="result"></div>
+
+  <script>
+    function calculatePercentage() {
+      const numerator = document.getElementById('numerator').value;
+      const denominator = document.getElementById('denominator').value;
+
+      if (numerator && denominator) {
+        const result = (numerator / denominator) * 100;
+        document.getElementById('result').innerHTML = `Result: <span style="color: #2ecc71; font-weight: bold; font-size: 28px;">${result.toFixed(2)}%</span>`;
+      } else {
+        document.getElementById('result').innerText = 'Please enter both numerator and denominator.';
+      }
+    }
+  </script>
+</div>
+
+</body>
+</html>
